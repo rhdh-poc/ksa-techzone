@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: integration
+  description: "CP4I for KSA"
+  annotations:
+    #argocd/app-selector: rht-gitops.com/janus-argocd=coolstore-inventory-quarkus-bootstrap
+    backstage.io/kubernetes-id: ksa-cp4i
+    backstage.io/kubernetes-namespace: integration
+    #janus-idp.io/tekton: coolstore-inventory-quarkus
+    backstage.io/source-location: url:https://github.com/rhdh-poc/ksa-techzone.git
+    backstage.io/techdocs-ref: url:https://github.com/rhdh-poc/ksa-techzone.git
+    #gitlab.com/project-slug: development/coolstore-inventory-quarkus
+    quay.io/repository-slug: "quayadmin/coolstore-inventory-quarkus"
+  tags:
+    - cp4i
+    - demo
+  links:
+    - url: https://console-openshift-console.apps.66a64ff6d70fa4001ee0caae.ocp.techzone.ibm.com/k8s/ns/integration/
+      title: OpenShift Pipelines
+      icon: web
+spec:
+  type: service
+  lifecycle: production
+  owner: "manwendra.kumar@ibm.com"
+  system: integration
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: integration
+  tags:
+    - cp4i
+    - demo
+spec:
+  owner: "manwendra.kumar@ibm.com"
+---
